@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>task10</title>
+<style type="text/css">
+* {
+	padding: 20px;
+	margin: 0px;
+}
+.container{
+        border: #000 solid 1px;
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction:         row;
+        -webkit-justify-content:space-between;
+        justify-content:space-between;
+        -webkit-flex-wrap: wrap; /* Safari */
+        flex-wrap:         wrap;
+        -webkit-align-items: center; /* Safari */
+        align-items:         center;
+        -webkit-align-content: center; /* Safari */
+        align-content:         center;
+
+    }
+.container div {
+    width:150px;
+    border: #f00 solid 1px;
+    margin-bottom:10px;
+    padding:0;
+}
+
+.col-sm-1{
+        height:120px;
+	}
+	.col-sm-2{
+        height:100px;
+	}
+	.col-sm-3{
+        height:40px;
+	}
+	.col-sm-4{
+        height:200px;
+        border: #00f solid 1px !important;
+	}
+    
+@media all and (max-width: 640px){
+	.col-sm-4{
+        -webkit-order: -1;
+        order:         -1;
+	}
+    .container{
+        border: #000 solid 1px;
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction:         row;
+        -webkit-flex-wrap: wrap; /* Safari */
+        flex-wrap:         wrap;
+        -webkit-align-items: flex-start; /* Safari */
+        align-items:         flex-start;
+    }
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="col-sm-1 col-xs-1">1</div>
+		<div class="col-sm-2 col-xs-2">2</div>
+		<div class="col-sm-3 col-xs-3">3</div>
+        <div class="col-sm-4 col-xs-4">4</div>
+	</div>
+</body>
+</html>
