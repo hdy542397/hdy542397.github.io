@@ -1,0 +1,29 @@
+<html > 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title> css用clearfix清除浮动实例</title> 
+<meta name="generator" content="editplus" /> 
+<meta name="author" content="" /> 
+<meta name="keywords" content="" /> 
+<meta name="description" content="" /> 
+</head> 
+<body> 
+<style type="text/css"> 
+/**//*所有主流浏览器都支持 :after 伪元素。*/ 
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden} 
+.clearfix{*+height:1%;}/**//*不知道有什么用处，不加ie7也没有问题*/ 
+.box{ background:#111;width:500px; position:relative; border:2px solid red;} 
+.l{float:left; background:#333;width:200px; height:100px; border:2px solid red;} 
+.r{float:right;background:#666;width:200px; height:200px; border:2px solid red;} 
+.s{width:100px; height:100px;background:#456;position:absolute;right:-50px;border:2px solid red;} 
+</style> 
+<div class="box clearfix"> 
+<div class="l">left</div> 
+<div class="r">right</div> 
+<div class="s">absolute</div>
+</div> 
+</body> 
+</html> 
+			
+				 
+		

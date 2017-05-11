@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+* html .clearfix {height: 1%;}
+.clearfix{
+	margin-top: 100px;
+}
+
+</style>
+
+</head>
+<body>
+<div style="border:2px solid red;">
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">CSSBBS</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<!--<div style="clear:both;"></div>  去除这个样式后外层包裹的div没有高度 -->
+</div>
+	<div style="border:2px solid red; margin-top:100px;">
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">CSSBBS</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="clear:both;"></div>
+</div>
+
+<div class="clearfix" style="border:2px solid red;">
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">CSSBBS</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+<div style="float:left;width:80px;height:80px;border:1px solid blue;">TEST DIV</div>
+
+
+</body>
+
+</html>
