@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 09</title>
+    <style type="text/css">
+        body{
+    text-align:center;
+}
+.tab1, .tab2 {
+    width:350px;
+    margin:0 5px;
+    background:#CC9933;
+    opacity:0.5;
+    border-radius:5px 5px 5px 5px;
+    box-shadow: #CCC 4px 4px 4px;
+    text-align:left;
+    float:left;
+    display:inline;
+}
+.name {
+    list-style:none;
+    overflow:hidden;
+}
+.name li {
+    width:90px;
+    font:bold 16px/30px Verdana, Geneva, sans-serif;
+    background:#669900;
+    text-align:center;
+    border-radius:5px 5px 5px;
+    margin-right:5px;
+    float:left;
+    display:inline;
+    cursor:pointer;
+}
+li.selected{
+    background:#FF9900;
+}
+.content li{
+    height:500px;
+    display:none;
+}
+
+    </style>
+</head>
+<body>
+<div class="tab1">
+    <ul class="name">
+        <li>项目一</li>
+        <li>项目二</li>
+        <li>项目三</li>
+    </ul>
+    <ul class="content">
+        <li>类为<em>"tab1"</em>项目一内容,通过<em>"click"</em>触发</li>
+        <li>类为<em>"tab1"</em>项目二内容,通过<em>"click"</em>触发</li>
+        <li>类为<em>"tab1"</em>项目三内容,通过<em>"click"</em>触发</li>
+    </ul>
+</div>
+<div class="tab1">
+    <ul class="name">
+        <li>项目一</li>
+        <li>项目二</li>
+        <li>项目三</li>
+    </ul>
+    <ul class="content">
+        <li>类为<em>"tab1"</em>项目一内容,通过<em>"click"</em>触发</li>
+        <li>类为<em>"tab1"</em>项目二内容,通过<em>"click"</em>触发</li>
+        <li>类为<em>"tab1"</em>项目三内容,通过<em>"click"</em>触发</li>
+    </ul>
+</div>
+<div class="tab2">
+    <ul class="name">
+        <li>项目一</li>
+        <li>项目二</li>
+        <li>项目三</li>
+    </ul>
+    <ul class="content">
+        <li>类为<em>"tab2"</em>项目一内容,通过<em>"mouseover"</em>触发</li>
+        <li>类为<em>"tab2"</em>项目二内容,通过<em>"mouseover"</em>触发</li>
+        <li>类为<em>"tab2"</em>"项目三内容,通过<em>"mouseover"</em>触发</li>
+    </ul>
+</div>
+
+
+<script>
+   /** 
+ * 事件处理通用函数
+ */
+var EventUtil = {
+    //跨浏览器取事件对象event
+    getEvent : function(event){
+        return event ? event : window.event;
+    },
+    //款浏览器取事件对象的目标DOM节点
+    getTarget : function(event){
+        return event.target||event.srcElement;
+    },
+    //跨浏览器对节点进行事件绑定
+    addHandler : function(element,type,handler){
+        if(element.addEventListener){
+            element.addEventListener(type,handler,false);
+        }else if(element.attachEvent){
+            element.attachEvent("on"+type,handler);
+        }else{
+            element["on"+type] = handler;
+        }
+            
+    }
+};
+
+//设置选项卡切换方式
+tabSwitch("tab1","click");
+tabSwitch("tab2","mouseover");
+
+/**
+ * 选项卡通用函数
+ */
+// 传入参数inClassName设定为绑定的选项卡类名，参数triggerType设定为触发切换的类型
+function tabSwitch(inClassName,triggerType){
+    //取得全部选项卡区域
+    if(document.querySelectorAll){
+        var tabs = document.querySelectorAll("."+inClassName);
+    }else{
+        var divs = document.getElementsByTagName("div");
+        var tabs = new Array();
+        for(var k=0,lenDiv=divs.length; k<lenDiv; k++){
+            if(divs[k].className.indexOf(inClassName) > -1){
+                tabs.push(divs[k]);
+            }
+        }
+    }
+    //为每个选项卡建立切换功能
+    for(var j=0,len=tabs.length; j<len; j++){
+        //获取标题和内容列表
+        var tab = tabs[j];
+        //使用私有作用域为每个选项卡建立切换
+        (function(){
+            var nameUl = tab.getElementsByTagName("ul")[0];
+            var content = tab.getElementsByTagName("ul")[1];
+            //初始化选项卡
+            nameUl.getElementsByTagName("li")[0].className = "selected";
+            content.getElementsByTagName("li")[0].style.display = "block";
+            //添加事件委托
+            EventUtil.addHandler(nameUl,triggerType,function(event){
+                //获取事件对象
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+                //选项卡切换
+                if(target.nodeName.toLowerCase() == "li"){
+                    //分别取得标题列表项和内容列表项
+                    var nameList = nameUl.getElementsByTagName("li");
+                    var contentList = content.getElementsByTagName("li");
+                    //标题添加selected类，并显示内容
+                    for(var i=0,len=nameList.length; i<len; i++){
+                        nameList[i].className = "";
+                        contentList[i].style.display = "none";
+                        if(nameList[i] == target){
+                            nameList[i].className = "selected";
+                            contentList[i].style.display = "block";
+                        }
+                    }
+                }
+            });
+        })();
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title >asdsdf</title>
+<script type="text/javascript"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+<!--下啦的jq脚本-->
+<script type="text/javascript">
+ $(function(){
+		$(".yiji").mouseover(function(){
+			$(this).children("ul").slideToggle();
+		})
+		$(".yiji").mouseout(function(){
+			$(this).children("ul").hide("50");
+		})
+	})
+</script>
+<!--样式-->
+<style>
+body{
+	margin: 0 0;
+	background-color:black;
+	
+}	
+#body{
+	height: 700px;
+	border: 1px black solid;
+	padding: auto auto;
+	color: gray;
+}
+#pr{
+	margin:0 auto;
+	width: 420px;height: 300px;
+	}
+#top{
+	width: 100%;
+	height: 50px;
+	background-color:white;
+	position: fixed;
+	padding: 0 0;
+	}
+#left{
+	text-align: center;
+	height: 50px;
+	width: 100px;
+	line-height: 50px;
+	margin-top: 0px;
+	margin: 0 0;
+	float: left;
+}	
+#right{
+	height: 50px;
+	right: 0;
+	position: absolute;
+	border-left: 1px black dashed;
+	padding-left:0px;
+	
+}
+a:hover{
+	display: block;
+	background-color: black;
+	color: white;
+	line-height: 50px
+}
+ul{
+	list-style: none;
+	margin: 0;padding: 0;
+}
+#right ul li{
+	line-height: 50px;
+	height: 50px;
+	color: gray;
+	float: left;
+	width: 100px;
+	text-align: center;
+}
+#right ul li ul li{height: 50px;
+	color: red;
+	line-height: 50px;
+	background-color:white;
+	margin-left: 0;
+}
+ul li ul{ display: none
+}
+</style>	
+</head>
+
+<!--分割-->
+<body>
+<div id="top">
+	<div id="left"><a>阿萨德</a></div>
+	<div id="right">
+	<ul>
+		<li class="yiji">一些作业
+			<ul>
+				<li><a href="#">视频学习</a></li>
+				<li><a href="#">视频学习</a></li>
+				<li><a href="#">视频学习</a></li>
+			</ul>
+
+		</li>
+		<li class="yiji"><a>兴趣爱好</a>
+			<ul>
+				<li>听歌</li>
+				<li>电影</li>
+				<li>一些歌手</li>
+			</ul>
+		</li>
+		<li>备忘录</a></li>
+		<li><a>其他</a></li>
+
+	</ul>
+
+	</div>
+</div>
+<div id="body"></div>
+<div id="pr"><img id="pr" src="img/praisethesun.png" width="420px" height="300px"></div>
+
+</body>
+</html>

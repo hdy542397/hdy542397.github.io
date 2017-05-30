@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>表单一</title>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .form {
+        width: 550px;
+        height: 100px;
+        margin: 10px auto;
+    }
+
+    .form p:first-child {
+        font-size: 20px;
+        font-weight: bold;
+        float: left;
+        margin-right: 30px;
+        line-height: 50px;
+    }
+
+    .form p:last-child {
+        font-size: 18px;
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+
+    .text {
+        height: 40px;
+        border-radius: 5px;
+        margin-right: 10px;
+        border: 2px solid gray;
+    }
+    .text:focus{
+        width: 300px;
+    }
+    .btn {
+        height: 40px;
+        width: 80px;
+        background-color: blue;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid blue;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #input1:focus{
+     width:80px;
+    }
+    </style>
+</head>
+
+<body>
+    <form class="form" action="#" method="get">
+        <p>名称</p>
+        <input type="text" id="input1" class="text">
+        <input type="button" value="验证" id="btn1" class="btn">
+    </form>
+    <form class="form" action="" method="get">
+        <p>名称</p>
+        <input type="text" id="input2" class="text">
+        <input type="button" value="验证" id="btn2" class="btn">
+    </form>
+    <form class="form" action="" method="get">
+        <p>名称</p>
+        <input type="text" id="input3" class="text">
+        <input type="button" value="验证" id="btn3" class="btn">
+    </form>
+    <script type="text/javascript">
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+
+        btn1.onclick =function(){
+            var text =document.getElementById("input1");
+            var len  =text.value.length;
+            var num =0;
+            for(var i =0; i<len;i++){
+                if(text.value.charCodeAt(i)>= 0 && text.value.charCodeAt(i)<128){
+                    num +=1;
+                } else {
+                    num +=2;
+                }
+            }
+        var form = document.getElementsByClassName("form")[0];
+        if(num > 16 || num < 4){
+            if(form.children[3]){
+                form.removeChild(form.children[3]);
+            }
+            var p =document.createElement("p");
+            p.style.color ="red";
+            var alert = document.createTextNode("必填，长度为4~16个字符");
+            p.appendChild(alert);
+            form.appendChild(p);
+            } else {
+                if(form.children[3]){
+                    form.removeChild(form.children[3]);
+                }
+                var p = document.createElement("p");
+                var alarm = document.createTextNode("名称格式正确");
+                p.appendChild(alarm);
+                p.style.borderColor ="red";
+                form.appendChild(p);
+                }
+        }
+        btn2.onclick = function() {
+        var text = document.getElementById("input2");
+        var len = text.value.length;
+        var num = 0;
+
+        // 取得字符长度
+        for (var i = 0; i < len; i++) {
+            if (text.value.charCodeAt(i) >= 0 && text.value.charCodeAt(i) < 128) {
+                num += 1
+            } else {
+                num += 2
+            }
+        }
+
+        var form = document.getElementsByClassName("form")[1];
+        if (num > 16 || num < 4) {
+            if (form.children[3]) {
+                form.removeChild(form.children[3]);
+            }
+            var p = document.createElement("p");
+            p.style.color = "#db0521";
+            var alert = document.createTextNode("姓名不能为空");
+            p.appendChild(alert);
+            text.style.borderColor = "#db0521";
+            form.appendChild(p);
+        } else {
+            if (form.children[3]) {
+                form.removeChild(form.children[3]);
+            }
+            var p = document.createElement("p");
+            var alarm = document.createTextNode("名称格式正确");
+            p.appendChild(alarm);
+            p.style.color = "#84ca74";
+            text.style.borderColor = "#84ca74";
+            form.appendChild(p);
+        }
+    }
+
+    btn3.onclick = function() {
+        var text = document.getElementById("input3");
+        var len = text.value.length;
+        var num = 0;
+
+        // 取得字符长度
+        for (var i = 0; i < len; i++) {
+            if (text.value.charCodeAt(i) >= 0 && text.value.charCodeAt(i) < 128) {
+                num += 1
+            } else {
+                num += 2
+            }
+        }
+
+        var form = document.getElementsByClassName("form")[2];
+        if (num > 16 || num < 4) {
+            if (form.children[3]) {
+                form.removeChild(form.children[3]);
+            }
+            var p = document.createElement("p");
+            p.style.color = "#db0521";
+            var alert = document.createTextNode("姓名不能为空");
+            p.appendChild(alert);
+            text.style.borderColor = "#db0521";
+            form.appendChild(p);
+        } else {
+            if (form.children[3]) {
+                form.removeChild(form.children[3]);
+            }
+            var p = document.createElement("p");
+            var alarm = document.createTextNode("名称格式正确");
+            p.appendChild(alarm);
+            p.style.color = "#84ca74";
+            text.style.borderColor = "#84ca74";
+            form.appendChild(p);
+        }
+    }
+
+    function init() {
+        btn1;
+        btn2;
+        btn3;
+    }
+
+    init();
+    </script>
+</body>
+</html>

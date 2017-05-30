@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="utf-8">
+    <title>二叉树</title>
+</head>
+<style type="text/css">
+div{
+    border: 2px solid red;
+    padding: 10px;
+}
+#cartoon{
+    width: 1400px;
+    height: 350px;
+}
+.cute{
+    height: 200px;
+    width: 500px;
+}
+.funny{
+    height: 200px;
+    width: 510px;
+    margin-left: 540px;
+    margin-top: -225px;
+}
+.genuine{
+    width: 220px;
+    height: 150px;
+}
+.create{
+    width: 220px;
+    height: 150px;
+    margin-left: 260px;
+    margin-top: -175px;
+}
+.unofficial{
+    width: 80px;
+    height: 100px;
+}
+.Silver{
+    width: 70px;
+    height: 100px;
+    margin-left: 130px;
+    margin-top: -125px;
+}
+.Robot{
+    height: 200px;
+    width: 200px;
+    margin-left:1100px;
+    margin-top: -225px;
+}
+.example{
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-top: 35px;
+    margin-left: 5px;
+}
+/*input{
+    display: flex;
+    align-items: flex-end;
+}*/
+</style>
+<body>
+<div id="cartoon">动漫
+   <div class="cute">萌系
+    <div class="example">龙女仆</div>
+    <div class="example">狐妖</div>
+    <div class="example">小埋</div>
+    <div class="example">小黑</div>
+    <div class="example">new game</div>
+    <div class="example">妹一</div>
+    <div class="example">妹二</div>
+   </div>
+   <div class="funny">搞笑
+            <div class="genuine">正版
+            <div class="example">埃罗</div>
+            <div class="example">黑白</div>
+            <div class="example">十万</div>
+        </div>
+    <div class="create" >自创
+        <div class="unofficial">民间
+            <div class="example">东方</div>
+        </div>
+        <div class="Silver">银仙</div>
+    </div>
+   </div>
+   <div class="Robot">机甲</div>
+</div>
+ <input id="deep" type="button" value="深度遍历">
+ <input id="wide" type="button" value="广度遍历">
+ <input id="txt" type="text">
+ <input id="deepinquire" type="button" value="深度遍历查询">
+ <input id="wideinquire" type="button" value="广度遍历查询">
+ <script type="text/javascript">
+    var deepTraversal = document.getElementsByTagName("input");
+    var wideTraversal =document.getElementsByTagName("input");
+    //var cartoon =document.getElementsByTagName("cartoon");
+    var cartoon =document.getElementById('cartoon');
+    var i=0;
+    var order =[];
+    var timer =null;
+    function deep(node){
+        if(node !== null){
+            order.push(node);
+            var children = node.children;
+            for (var i = 0; i < children.length; i++){
+                deep(children[i]);
+            }
+        }
+    }
+    function wide(node){
+        // if(node !== null){
+        //     order.push(node);
+        //     wide(node.nextElementSibling);
+        //     node = order[i++];
+        //     wide(node.firstElementChild);
+        if(node !=null){
+            var data =[];
+            data.unshift(node);
+            while(data.length !=0){
+                var item =data.shift();
+                order.push(item);
+                var children =item.children;
+                for (var i = 0; i < children.length; i++) {
+                    data.push(children[i]);
+                };
+            }
+        }
+    //     }
+    }
+    function changeColor(txt){
+        var i =0;
+        var count = 0;
+        var prefound = null;
+        timer =setInterval(function(){
+            i++;
+            if(i<order.length){
+                order[i].style.backgroundColor ="yellow";
+                if(order[i].firstChild.nodeValue.replace(/(^\s*)|(\s*$)/g,"") == txt){
+                    order[i].style.backgroundColor ="red";
+                    prefound = order[i].firstChild.nodeValue;
+                    count++;
+                }else{
+                    // if(order[i-1].firstChild.nodeValue.replace(/(^\s*)|(\s*$)/g,"") != txt){
+                    //     order[i].style.backgroundColor ="null";
+                    // }
+                }
+            }else{
+                alert("总共找到"+count+"个数据");
+                clearInterval(timer);
+         }
+        },500);
+    }
+
+    function initialize(){
+        order = [];
+        clearInterval(timer);
+        var divlist =document.getElementsByTagName("div");
+        for(var i =0;i<divlist.length;i++){
+            divlist[i].style.backgroundColor = "gray";
+        }
+    }
+    window.onload = function(){
+
+        document.getElementById("deep").addEventListener("click",function(){
+            initialize();
+            deep(cartoon);
+            changeColor();
+        });
+        document.getElementById("wide").addEventListener("click",function(){
+            initialize();
+            wide(cartoon);
+            changeColor();
+        });
+        document.getElementById("deepinquire").addEventListener("click",function(){
+            var txt =document.getElementById("txt").value;
+            initialize();
+            deep(cartoon);
+            if(txt !=""){
+                changeColor(txt);
+            }else{
+                alert("请输入查询字符");
+            }
+
+        })
+        document.getElementById("wideinquire").addEventListener("click",function(){
+            var txt =document.getElementById("txt").value;
+            initialize();
+            wide(cartoon);
+            if(txt !=""){
+                changeColor(txt);
+            }else{
+                alert("请输入查询字符");
+            }
+
+        })
+    }
+</script>
+</body>
+</html>

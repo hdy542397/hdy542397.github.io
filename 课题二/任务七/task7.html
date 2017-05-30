@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="utf-8">
+    <title>二叉树</title>
+</head>
+<style type="text/css">
+div{
+    border: 2px solid red;
+}
+.cartoon{
+    width: 1200px;
+    height: 300px;
+}
+.china{
+    width: 500px;
+    height: 200px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.other{
+    width: 500px;
+    height: 200px;
+    margin-top: -202px;
+    margin-left: 630px;
+}
+.crue{
+    width: 200px;
+    height: 100px;
+    margin-left: 30px;
+}
+.warm_blood{
+    width: 200px;
+    height: 100px;
+    margin-left: 260px;
+    margin-top: -102px;
+}
+.example_left{
+    width: 70px;
+    height: 50px;
+    margin-left: 20px;
+}
+.example_right{
+    width: 70px;
+    height: 50px;
+    margin-left: 120px;
+    margin-top: -52px;
+}
+/*input{
+    display: flex;
+    align-items: flex-end;
+}*/
+</style>
+<body>
+<div id="cartoon">动漫
+    <div class="china">国内
+        <div class="crue">治愈
+            <div class="example_left">夏目友人帐</div>
+            <div class="example_right">罗小黑战记</div>
+        </div>
+        <div class="warm_blood">热血
+            <div class="example_left">秦时明月</div>
+            <div class="example_right">篮球高手</div>
+        </div>
+    </div>
+    <div class="other">国内
+        <div class="crue">治愈
+            <div class="example_left">夏目友人帐</div>
+            <div class="example_right">罗小黑战记</div>
+        </div>
+        <div class="warm_blood">热血
+            <div class="example_left">秦时明月</div>
+            <div class="example_right">篮球高手</div>
+        </div>
+    </div>
+</div>
+ <input id="preOrder" type="button" value="前序遍历">
+ <input id="inOrder" type="button" value="中序遍历">
+ <input id="postOrder" type="button" value="后序遍历">
+<script type="text/javascript">
+    // var preOrder = document.getElementsByTagName("input");
+    // var inOrder =document.getElementsByTagName("input");
+    // var postOrder =document.getElementsByTagName("input");
+    //var cartoon =document.getElementsByTagName("cartoon");
+    var cartoon =document.getElementById('cartoon');
+    var order =[];
+    var timer =null;
+    function preOrderTraverse(node){
+        if(node !== null){
+            order.push(node);
+            preOrderTraverse(node.firstElementChild);
+            preOrderTraverse(node.lastElementChild);
+
+        }
+    }
+    function inOrderTraverse(node){
+       if(node !== null){
+            inOrderTraverse(node.firstElementChild);
+            order.push(node);
+            inOrderTraverse(node.lastElementChild);
+
+        }
+    }
+    function postOrderTraverse(node){
+        if(node !== null){
+            postOrderTraverse(node.firstElementChild);
+            postOrderTraverse(node.lastElementChild);
+            order.push(node);
+        }
+    }
+    function changeColor(){
+        var i =0;
+        order[i].style.backgroundColor ="red";
+        timer =setInterval(function(){
+            i++;
+            if(i<order.length){
+                order[i-1].style.backgroundColor = "red";
+                order[i].style.backgroundColor = "yellow";
+            }else{
+                clearInterval(timer);
+                order[order.length-1].style.backgroundColor = "orange"
+            }
+        },500);
+    }
+
+    function initialize(){
+        order = [];
+        clearInterval(timer);
+        var divlist =document.getElementsByTagName("div");
+        for(var i =0;i<divlist.length;i++){
+            divlist[i].style.backgroundColor = "gray";
+        }
+    }
+    window.onload = function(){
+
+        document.getElementById("preOrder").addEventListener("click",function(){
+            initialize();
+            preOrderTraverse(cartoon);
+            changeColor();
+        });
+        document.getElementById("inOrder").addEventListener("click",function(){
+            initialize();
+            inOrderTraverse(cartoon);
+            changeColor();
+        });
+        document.getElementById("postOrder").addEventListener("click",function(){
+            initialize();
+            postOrderTraverse(cartoon);
+            changeColor();
+        });
+    }
+</script>
+</body>
+</html>

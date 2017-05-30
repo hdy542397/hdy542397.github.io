@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task 14</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+  	<li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+(function () {
+
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+ var fun = 
+            {
+		    	 //对 apiData 过滤，找出将空气质量指数大于60的城市。
+		    	 filterData: function(data) 
+		    	 {
+		    	 	var newData = [];
+		    	 	for (var i = 0; i < data.length; i++) 
+		    	 	{
+		    	 		if(data[i][1] > 60) 
+		    	 		{
+		    	 			newData.push(data[i]);
+		    	 		}
+		    	 	}
+		    	 	return newData;
+		    	 },
+
+		    	 //按空气质量进行排序
+		    	 sortData: function( data ) 
+		    	 {
+		    	 	for (var i = 0; i < data.length; i++) 
+		    	 	{
+		    	 		for (var j = i + 1; j < data.length; j++)
+		    	 		{
+		    	 			if (data[i][1] < data[j][1]) 
+		    	 			{
+		    	 				var temp = data[i];
+		    	 				data[i] = data[j];
+		    	 				data[j] = temp;
+		    	 			}
+		    	 		}
+		    	 	}
+		    	 	return data;
+		    	 },
+
+		    	 //阿拉伯数字转换为汉字数字
+		    	 arabicToHanzi: function( num ) 
+		    	 {
+		    	 	var hanzi = ["一", "二", "三", "四", "五", "六","七", "八", "九", "十"];
+		    	 	return hanzi[num-1];
+		    	 },
+
+
+		    	 //生成 Node
+		    	 appendTo: function(data) 
+		    	 {
+		    	 // 取得 id = 'aqi-list' 的 ul元素
+		    	     var list = document.getElementById('aqi-list');
+		    	     for (var i = 0; i < data2.length; i++) 
+		    	     {
+		    	 	    var text = document.createTextNode('第' + fun.arabicToHanzi(i+1) + '名：' + data2[i][0] +'，' + data2[i][1]);
+		    	 	    var li = document.createElement('li');
+		    	 	    li.appendChild(text);
+		    	 	    list.appendChild(li);
+		    	     }
+		    	  }
+		    };
+		    
+		    var data1 = fun.filterData(aqiData);
+		    var data2 = fun.sortData(data1);
+		    fun.appendTo(data2);
+            
+        })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" >
+<!-- <meta name="description" content="慕课网，移动web，alloyteam，js，css"> -->
+
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>这个是标题</title>
+	<style type="text/css">
+     *{
+     	margin: 0px;
+     }
+     .nav{
+     	text-align: center;
+     }
+     li{
+     	list-style:none;
+     	display: inline;
+     }
+     .main img{
+     	width: 100%;
+	    height: 100%;
+     }
+     .flag{
+        height: 165px;
+       /* border: red solid 1px ;*/
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction:         row;
+        -webkit-justify-content:space-between;
+        justify-content:space-between;
+        -webkit-flex-wrap: wrap; /* Safari */
+        flex-wrap:         wrap;
+        -webkit-align-items: center; /* Safari */
+        align-items:         center;
+        -webkit-align-content: center; /* Safari */
+        align-content:         center;
+
+     }
+     .flag div{
+     	 height: 160px;
+     	 width: 19%;
+         /*border: blue solid 0.5px;*/
+     }
+     .flag img{
+     	width: 100%;
+     	height: 140px;
+     }
+     .subfield{
+        height: 250px;
+       /* border: red solid 1px ;*/
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction:         row;
+        -webkit-justify-content:space-between;
+        justify-content:space-between;
+        -webkit-flex-wrap: wrap; /* Safari */
+        flex-wrap:         wrap;
+        -webkit-align-items: center; /* Safari */
+        align-items:         center;
+        -webkit-align-content: center; /* Safari */
+        align-content:         center;
+
+     }
+     .subfield div{
+     	 height: 100%;
+     	 width: 32.5%;
+         /*border: blue solid 0.5px;*/
+         text-align: center;
+     }
+     .subfield img{
+     	width: 100%;
+     	height: 200px;
+     }
+     .module{
+			height: 400px;
+			/*border: red solid 1px;*/
+			display: -webkit-flex; /* Safari */
+			display: flex;
+			-webkit-flex-direction: row; /* Safari */
+			flex-direction:         row;
+		    -webkit-justify-content:space-between;
+		    justify-content:space-between;
+		    -webkit-flex-wrap: wrap; /* Safari */
+		    flex-wrap:         wrap;
+		    -webkit-align-items: center; /* Safari */
+		    align-items:         center;
+		    -webkit-align-content: center; /* Safari */
+		    align-content:         center;
+ 
+     }
+     .moduleleft{
+     	  height: 400px;
+     	  width: 33%;
+     	  /*border: blue solid 0.5px;*/
+     }
+     .moduleleft img{
+     	  height: 100%;
+     	  width:100%;
+     }
+     .modulecenter{
+            height: 400px;
+			width: 32%;
+			/*border: blue solid 0.5px;*/
+     }
+     .moduleright{
+			height: 400px;
+			width: 32%;
+			/*border: blue solid 0.5px;*/
+     }
+     .module p{
+     	font-size: 24px;
+     }
+     .leftone{
+     	height: 160px;
+     	/*border: blue solid 0.5px;*/
+     	margin: 20px 20px 20px 20px;
+     }
+     .moduone{
+     	height: 70px;
+     	/*border: yellow solid 0.5px;*/
+     	margin: 20px 20px 20px 20px; 
+     }
+     .headline{
+     	height: 400px;
+		/*border: red solid 1px;*/
+		display: -webkit-flex; /* Safari */
+		display: flex;
+		-webkit-flex-direction: row; /* Safari */
+		flex-direction:         row;
+		-webkit-justify-content:space-between;
+		justify-content:space-between;
+		-webkit-flex-wrap: wrap; /* Safari */
+		flex-wrap:         wrap;
+		-webkit-align-items: center; /* Safari */
+		align-items:         center;
+		-webkit-align-content: center; /* Safari */
+		align-content:         center;
+  
+     }
+     .headlineleft{
+     	  height: 400px;
+     	  width: 33%;
+     	 /* border: blue solid 0.5px;*/
+     }
+     .headlineleft img{
+     	  height: 100%;
+     	  width:100%;
+     }
+     .headlineup{
+     	height: 160px;
+     	/*border: blue solid 0.5px;*/
+     	margin: 20px 20px 20px 20px;
+     }
+     .headlinedown{
+     	height: 180px;
+     	/*border: blue solid 0.5px;*/
+     	margin: 20px 20px 20px 20px;
+     }
+
+     .headlineright{
+     	height: 400px;
+		width: 65%;
+		/* border: blue solid 0.5px;*/
+     }
+     .headlineright p{
+       font-size: 22px;
+     }
+     .headlineright span{
+     	float: right;
+     	margin-top: 100px;
+     }
+     .finally{
+        height: 260px;
+        /*border: red solid 1px ;*/
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction:         row;
+        -webkit-justify-content:space-between;
+        justify-content:space-between;
+        -webkit-flex-wrap: wrap; /* Safari */
+        flex-wrap:         wrap;
+        -webkit-align-items: center; /* Safari */
+        align-items:         center;
+        -webkit-align-content: center; /* Safari */
+        align-content:         center;
+
+     }
+     .finally div{
+     	 height: 90%;
+     	 width: 32.5%;
+         /*border: blue solid 0.5px;*/
+     }
+     .finallytxt{
+     	height: 30px;
+     	font-size: 22px;
+
+     }
+     .finally img{
+     	width: 100%;
+     	height: 100%;
+     }
+	</style>
+</head>
+<body>
+  <div class="nav">
+   <ul>
+	<li><a href="#">首页</a></li>
+	<li><a href="#">导航一</a></li>
+	<li><a href="#">导航二</a></li>
+	<li><a href="#">导航三</a></li>
+	<li><a href="#">导航四</a></li>
+	</ul>
+	</div>
+	<div class="main">
+		<img src="img/timg8.jpg">
+	</div>
+	<div class="flag">
+		    <div class="flag1"><img src="img/timg8.jpg">  标签1</div>
+			<div class="flag2"><img src="img/timg8.jpg">标签2</div>
+			<div class="flag3"><img src="img/timg8.jpg">标签3</div>
+			<div class="flag4"><img src="img/timg8.jpg">标签4</div>
+			<div class="flag5"><img src="img/timg8.jpg">标签5</div>
+	</div>
+	<div class="subfield">
+	<div class="subfield1"><img src="img/timg8.jpg"><P>分栏1</P>分栏小标题</div>
+	<div class="subfield2"><img src="img/timg8.jpg"><P>分栏2</P>分栏小标题</div>
+	<div class="subfield3"><img src="img/timg8.jpg"><P>分栏3</P>分栏小标题</div>
+	</div>
+	<div >
+		<p><b>模块一</b></p>
+	    <hr />
+	</div>
+	<div class="module">
+	    
+		<div class="moduleleft">
+			<div class="leftone"><img src="img/timg8.jpg"> </div>
+			<div class="leftone"><img src="img/timg8.jpg"></div>
+		</div>
+		<div class="modulecenter">
+		  <div class="moduone">center1</div>
+		  <div class="moduone">center2</div>
+		  <div class="moduone">center3</div>
+		  <div class="moduone">center4</div>
+		</div>
+		<div class="moduleright">
+		  <div class="moduone">right1</div>
+		  <div class="moduone">right2</div>
+		  <div class="moduone">right3</div>
+		  <div class="moduone">right4</div>
+		</div>
+	</div>
+	<div >
+		<p><b>模块二</b></p>
+	    <hr />
+	</div>
+	<div class="module">
+	    
+		<div class="moduleleft">
+			<div class="leftone"><img src="img/timg8.jpg"> </div>
+			<div class="leftone"><img src="img/timg8.jpg"></div>
+		</div>
+		<div class="modulecenter">
+		  <div class="moduone">center1</div>
+		  <div class="moduone">center2</div>
+		  <div class="moduone">center3</div>
+		  <div class="moduone">center4</div>
+		</div>
+		<div class="moduleright">
+		  <div class="moduone">right1</div>
+		  <div class="moduone">right2</div>
+		  <div class="moduone">right3</div>
+		  <div class="moduone">right4</div>
+		</div>
+	</div>
+	<div class="headline">
+		<div class="headlineleft">
+			<div class="headlineup"><img src="img/timg8.jpg"></div>
+			<div class="headlinedown"><img src="img/timg8.jpg"></div>
+		</div>
+		<div class="headlineright">
+			<div class="headlineup">
+			<P>这是文章标题字号是22号字的文章标题</P>
+			<span>文章来源 6分钟前</span> 
+			</div>
+			<div class="headlinedown">
+				<P>这是另一个文章标题</P>
+			    <span>文章来源 7分钟前</span> 
+			</div>
+		</div>
+	</div>
+	<div class="finallytxt"><p>这个也是文章标题字号是22的文章标题</p></div>
+	<div class="finally">
+		<div><img src="img/timg8.jpg"></div>
+		<div><img src="img/timg8.jpg"></div>
+		<div><img src="img/timg8.jpg"></div>
+		文章来源 7分钟前
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式之入门</title>
+</head>
+<body>
+    <input type="text" id="tel">
+    <input type="button" id="tel_btn" value="测试号码">
+    <input type="text" id="repeat">
+    <input type="button" id="rep_btn" value="重复测试">
+</body>
+<script>
+    var tel = document.getElementById("tel");
+    var repeat =document.getElementById("repeat");
+
+    var test1 = /^1([3|5|8]{1}[0-9]{1}|47)\d{8}/;
+    var test2 = /([a-zA-Z]+)\b\s+\1/;
+
+    tel.addEventListener("focus",function(){
+        this.value ='';
+    },true);
+    repeat.addEventListener("focus",function(){
+        this.value = '';
+    },true);
+    document.getElementById("tel_btn").addEventListener("click",function(){
+        //console.log(tel.value.trim())
+        if(test1.test(tel.value.trim())){
+            alert("通过")
+        }else{
+            alert("未通过")
+        }
+    })
+    document.getElementById("rep_btn").addEventListener("click",function(){
+        //console.log(repeat.value.trim())
+        if(test2.test(repeat.value.trim())){
+            alert("通过");
+            }else{
+                alert("未通过");
+        }
+    })
+    </script>
+</html>
